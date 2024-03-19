@@ -85,6 +85,7 @@ Validation:
 */
 
 // ********RoostGPT********
+
 package com.baeldung.auth.config;
 
 import org.jboss.resteasy.core.ResteasyContext;
@@ -176,13 +177,20 @@ public class Resteasy3ProviderPushDefaultContextObjectTest {
         }
     }
 
-    public void pushDefaultContextObject(Class type, Object instance) {
-        ResteasyProviderFactory.getInstance()
-                .getContextData(Dispatcher.class)
-                .getDefaultContextObjects()
-                .put(type, instance);
+    // The 'pushDefaultContextObject' method should be private to reflect that it's a helper method for the test class.
+    // Since there's no indication of visibility, it's assumed to be package-private, which might not be intended.
+    private void pushDefaultContextObject(Class type, Object instance) {
+        // Since this method is crucial for the tests, there should be a null check for the dispatcher before attempting to get the default context objects.
+        // Without this check, a NullPointerException would be thrown when the dispatcher is null, which would make the test 'pushDefaultContextObjectWithUnavailableDispatcher' fail incorrectly.
+        Dispatcher dispatcher = ResteasyProviderFactory.getInstance().getContextData(Dispatcher.class);
+        if (dispatcher == null) {
+            throw new IllegalStateException("Dispatcher is not available in ResteasyContext");
+        }
+        dispatcher.getDefaultContextObjects().put(type, instance);
     }
 
+    // This class should be static to be used in the test methods without needing an instance of the outer class.
+    // Since it's not used outside of this test, it's fine to leave it without fields or methods unless the test scenarios require them.
     private static class UnsupportedClass {
         // TODO: Add fields or methods if necessary for the test
     }

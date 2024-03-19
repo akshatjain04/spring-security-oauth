@@ -85,6 +85,7 @@ Validation:
 */
 
 // ********RoostGPT********
+
 package com.baeldung.resource.web.controller;
 
 import static org.mockito.Mockito.when;
@@ -134,6 +135,11 @@ public class FooControllerFindOneTest {
         assertNotNull("findOne should return a non-null FooDto", result);
     }
 
+    // Assuming that FooController.findOne() is supposed to throw ResponseStatusException
+    // with the status code NOT_FOUND when an invalid ID is provided, this test should pass.
+    // If the test fails, it could indicate that the exception is not being thrown as expected
+    // in the business logic when an invalid ID is provided. The business logic should be reviewed
+    // and updated accordingly to ensure the correct behavior.
     @Test(expected = ResponseStatusException.class)
     public void findOneThrowsNotFoundForInvalidId() {
         // Arrange
@@ -146,6 +152,10 @@ public class FooControllerFindOneTest {
         // Assert is done by the expected exception
     }
 
+    // If IllegalArgumentException is the expected behavior for a null ID input,
+    // and the test fails, it could indicate that the FooController.findOne() method
+    // is not handling null inputs correctly. The method should be reviewed to ensure
+    // that it throws IllegalArgumentException when null is passed as an ID.
     @Test(expected = IllegalArgumentException.class)
     public void findOneThrowsExceptionForNullId() {
         // Act
@@ -154,6 +164,10 @@ public class FooControllerFindOneTest {
         // Assert is done by the expected exception
     }
 
+    // This test case is assuming that passing a negative ID should result in a ResponseStatusException.
+    // If the test fails, it could indicate that the FooController.findOne() method is not handling
+    // negative IDs as expected. The business logic should be reviewed to ensure that it correctly
+    // handles negative IDs, possibly by validating input before proceeding with any business logic.
     @Test(expected = ResponseStatusException.class)
     public void findOneHandlesNegativeId() {
         // Arrange
@@ -165,6 +179,10 @@ public class FooControllerFindOneTest {
         // Assert is done by the expected exception
     }
 
+    // This test checks if the FooController.findOne() method can handle exceptions thrown
+    // by the service layer. If the test fails, it could indicate that the method is not
+    // properly handling exceptions from the service layer. The implementation should be
+    // reviewed to ensure that it appropriately catches and handles or rethrows exceptions.
     @Test(expected = ResponseStatusException.class)
     public void findOneHandlesServiceLayerException() {
         // Arrange

@@ -85,12 +85,18 @@ Validation:
 */
 
 // ********RoostGPT********
+
 package com.baeldung.client.web.model;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 public class FooModelToStringTest {
+
+    // Assuming FooModel class exists and has a proper toString method implementation
+    // If FooModel class definition is missing or toString method is not properly implemented, 
+    // these tests will fail to compile or produce incorrect results.
+    // Ensure FooModel is correctly implemented with a safe toString method as per the vulnerabilities mentioned above.
 
     @Test
     public void testToStringWithNonNullFields() {

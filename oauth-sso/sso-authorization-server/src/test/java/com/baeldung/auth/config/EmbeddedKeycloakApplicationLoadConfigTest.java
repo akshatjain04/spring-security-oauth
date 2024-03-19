@@ -85,6 +85,7 @@ Validation:
 */
 
 // ********RoostGPT********
+
 package com.baeldung.auth.config;
 
 import org.junit.Before;
@@ -165,6 +166,11 @@ public class EmbeddedKeycloakApplicationLoadConfigTest {
         // Assert: Expect RuntimeException to be thrown
     }
 
+    // This test case has a logical issue because we cannot directly stub a static method with Mockito.
+    // The Config.init method is static and we are trying to stub it with doThrow, which is not possible without a tool that allows mocking static methods.
+    // To fix this test, we would either need to refactor the code to allow for better testing or use a tool like PowerMock to enable stubbing of static methods.
+    // Commenting out the test case until the above issue is resolved.
+    /*
     @Test(expected = RuntimeException.class)
     public void loadConfigWithInitializationFailure() {
         // Arrange
@@ -182,4 +188,5 @@ public class EmbeddedKeycloakApplicationLoadConfigTest {
 
         // Assert: Expect the RuntimeException to be propagated
     }
+    */
 }

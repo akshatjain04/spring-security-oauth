@@ -94,6 +94,7 @@ Validation:
 */
 
 // ********RoostGPT********
+
 package com.baeldung.auth.config;
 
 import org.junit.Assert;
@@ -159,6 +160,11 @@ public class KeycloakServerPropertiesSetRealmImportFileTest {
         // Act
         setRealmImportFile(filePathWithWhitespace);
         // Assert
+        // The following assertion is dependent on the application's requirement to trim whitespace or not.
+        // If the application's requirement is to trim the whitespace, this test will fail as the assert
+        // should be checking against a trimmed string instead of 'filePathWithWhitespace'.
+        // In case the trimming is required, the assertion should be as follows:
+        // Assert.assertEquals("The realmImportFile should be trimmed.", filePathWithWhitespace.trim(), getRealmImportFile());
         Assert.assertEquals("The realmImportFile should include leading and trailing whitespace.",
                 filePathWithWhitespace, getRealmImportFile());
     }

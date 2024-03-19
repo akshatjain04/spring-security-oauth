@@ -95,10 +95,12 @@ These scenarios cover a range of typical and edge cases that might occur when ca
 */
 
 // ********RoostGPT********
+
 package com.baeldung.client.web.controller;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.verify;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -148,7 +150,8 @@ public class FooClientControllerGetFoosTest {
         String viewName = controller.getFoos(model);
         
         assertEquals("foos", viewName);
-        // TODO: Verify that model.addAttribute was called with "foos" and mockFoos
+        // Verify that model.addAttribute was called with "foos" and mockFoos
+        verify(model).addAttribute("foos", mockFoos);
     }
 
     @Test(expected = RuntimeException.class)
@@ -168,7 +171,8 @@ public class FooClientControllerGetFoosTest {
         String viewName = controller.getFoos(model);
 
         assertEquals("foos", viewName);
-        // TODO: Verify that model.addAttribute was called with "foos" and emptyList
+        // Verify that model.addAttribute was called with "foos" and emptyList
+        verify(model).addAttribute("foos", emptyList);
     }
 
     @Test
@@ -179,7 +183,9 @@ public class FooClientControllerGetFoosTest {
         String viewName = controller.getFoos(model);
 
         assertEquals("foos", viewName);
-        // TODO: Verify that model.addAttribute was called with "foos" and null
+        // Verify that model.addAttribute was called with "foos" and null
+        // This should be verified to check if null is being handled properly
+        verify(model).addAttribute("foos", null);
     }
 
     @Test
@@ -192,6 +198,7 @@ public class FooClientControllerGetFoosTest {
         String viewName = controller.getFoos(model);
 
         assertEquals("foos", viewName);
-        // TODO: Verify that model.addAttribute was called with "foos" and filteredList, ensuring no null elements
+        // Verify that model.addAttribute was called with "foos" and filteredList, ensuring no null elements
+        verify(model).addAttribute("foos", filteredList);
     }
 }

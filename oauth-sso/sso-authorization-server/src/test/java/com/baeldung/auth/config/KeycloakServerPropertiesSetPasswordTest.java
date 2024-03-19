@@ -101,6 +101,7 @@ Validation:
 */
 
 // ********RoostGPT********
+
 package com.baeldung.auth.config;
 
 import org.junit.Before;
@@ -152,7 +153,7 @@ public class KeycloakServerPropertiesSetPasswordTest {
 
     @Test
     public void setPasswordWithSpecialCharacters() {
-        String specialCharPassword = "P@$$w0rd!#";
+        String specialCharPassword = "P@$w0rd!#";
         properties.setPassword(specialCharPassword);
         assertEquals("The password should include special characters.", specialCharPassword, properties.getPassword());
     }

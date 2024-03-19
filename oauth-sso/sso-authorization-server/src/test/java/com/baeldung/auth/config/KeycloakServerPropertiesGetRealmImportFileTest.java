@@ -77,6 +77,7 @@ Validation:
 */
 
 // ********RoostGPT********
+
 package com.baeldung.auth.config;
 
 import static org.junit.Assert.assertEquals;

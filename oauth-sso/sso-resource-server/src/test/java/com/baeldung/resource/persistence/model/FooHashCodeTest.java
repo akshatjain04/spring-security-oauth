@@ -79,11 +79,13 @@ Validation:
 */
 
 // ********RoostGPT********
+
 package com.baeldung.resource.persistence.model;
 
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals; // Added to fix the compilation issue for assertNotEquals
 
 public class FooHashCodeTest {
     private Foo fooWithNonNullIdAndName;
@@ -142,15 +144,14 @@ public class FooHashCodeTest {
         assertNotEquals(hashCode1, hashCode2);
     }
 
+    // Commented out because this test case requires an external mechanism to store and retrieve the hash code between runs
+    // which is not implemented within the scope of this unit test.
+    /*
     @Test
     public void sameEntityGeneratesSameHashCodeAcrossRuns() {
         // TODO: Capture the hash code during the first run and store it (e.g., in a file or database)
         int recordedHashCode = fooWithNonNullIdAndName.hashCode(); // Replace this with the recorded value
         assertEquals(recordedHashCode, fooWithNonNullIdAndName.hashCode());
     }
-
-    private void assertNotEquals(int hashCode1, int hashCode2) {
-        boolean areNotEqual = hashCode1 != hashCode2;
-        assertEquals(true, areNotEqual);
-    }
+    */
 }

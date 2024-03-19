@@ -97,6 +97,7 @@ Validation:
 */
 
 // ********RoostGPT********
+
 package com.baeldung.client.web.model;
 
 import static org.junit.Assert.assertEquals;

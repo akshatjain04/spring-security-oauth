@@ -93,6 +93,7 @@ Validation:
 */
 
 // ********RoostGPT********
+
 package com.baeldung.client.spring;
 
 import org.junit.Before;
@@ -206,6 +207,7 @@ public class UiSecurityConfigFilterChainTest {
         when(httpSecurity.authenticated()).thenReturn(httpSecurity);
         when(httpSecurity.and()).thenReturn(httpSecurity);
         when(httpSecurity.oauth2Login()).thenReturn(httpSecurity);
+        // Simulating an exception that should be thrown by the build method
         when(httpSecurity.build()).thenThrow(new Exception("Failed to build SecurityFilterChain"));
 
         // Act

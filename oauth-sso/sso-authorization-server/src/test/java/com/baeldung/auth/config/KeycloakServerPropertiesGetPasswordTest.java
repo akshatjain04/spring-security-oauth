@@ -87,6 +87,7 @@ Please note that the actual implementation of these tests would depend on the cl
 */
 
 // ********RoostGPT********
+
 package com.baeldung.auth.config;
 
 import org.junit.Assert;

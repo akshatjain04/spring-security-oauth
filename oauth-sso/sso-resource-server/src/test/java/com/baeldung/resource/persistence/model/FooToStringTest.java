@@ -67,6 +67,7 @@ Validation:
 */
 
 // ********RoostGPT********
+
 package com.baeldung.resource.persistence.model;
 
 import static org.junit.Assert.assertEquals;
@@ -89,11 +90,14 @@ public class FooToStringTest {
 
         fooWithNullName = new Foo();
         fooWithNullName.setId(2L);
-        fooWithNullName.setName(null);
+        // Assuming that the Foo constructor sets the name to null by default, so not setting explicitly to null.
+        // fooWithNullName.setName(null);
 
         fooWithDefaultId = new Foo("TestName");
+        // Assuming the Foo constructor that takes a name should set the ID to a default value (e.g., 0L), if not, the test will fail.
 
         fooNewInstance = new Foo();
+        // Assuming the Foo no-arg constructor sets the id to 0 and name to null by default.
 
         fooWithSpecialCharactersInName = new Foo();
         fooWithSpecialCharactersInName.setId(3L);
@@ -114,18 +118,24 @@ public class FooToStringTest {
 
     @Test
     public void toStringWithDefaultId() {
+        // If the Foo class's constructor which takes a name does not set the ID to a default value, this test will fail.
+        // Ensure that the Foo(String name) constructor is setting the id to its default value.
         String expected = "Foo [id=0, name=TestName]";
         assertEquals(expected, fooWithDefaultId.toString());
     }
 
     @Test
     public void toStringForNewInstance() {
+        // If the Foo class's no-arg constructor does not initialize fields to their default values, this test will fail.
+        // Ensure that the Foo() constructor is setting the id to 0 and name to null by default.
         String expected = "Foo [id=0, name=null]";
         assertEquals(expected, fooNewInstance.toString());
     }
 
     @Test
     public void toStringWithSpecialCharactersInName() {
+        // If the Foo class's toString method does not handle special characters properly, this test will fail.
+        // Ensure that the Foo class's toString method correctly includes special characters.
         String expected = "Foo [id=3, name=Name@#]";
         assertEquals(expected, fooWithSpecialCharactersInName.toString());
     }

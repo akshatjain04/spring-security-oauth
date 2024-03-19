@@ -99,6 +99,7 @@ These scenarios provide a comprehensive testing strategy that covers different a
 */
 
 // ********RoostGPT********
+
 package com.baeldung.auth.config;
 
 import org.junit.Before;

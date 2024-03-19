@@ -89,6 +89,7 @@ Validation:
 */
 
 // ********RoostGPT********
+
 package com.baeldung.auth.config;
 
 import org.junit.Before;
@@ -132,6 +133,9 @@ public class KeycloakServerPropertiesSetContextPathTest {
 
     @Test
     public void setContextPathWithSpecialCharacters() {
+        // If this test case is failing, it might be due to the business logic not properly handling special characters.
+        // Ensure that the setContextPath method in KeycloakServerProperties properly sanitizes and handles special characters.
+        // This might involve escaping special characters or disallowing them according to the application's requirements.
         String contextPathWithSpecialChars = "/auth/special$char";
         properties.setContextPath(contextPathWithSpecialChars);
         assertEquals(contextPathWithSpecialChars, properties.getContextPath());

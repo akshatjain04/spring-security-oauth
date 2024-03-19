@@ -93,6 +93,7 @@ Validation:
 */
 
 // ********RoostGPT********
+
 package com.baeldung.resource.web.controller;
 
 import static org.junit.Assert.assertEquals;
@@ -105,6 +106,7 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.baeldung.resource.persistence.model.Foo;
@@ -156,6 +158,10 @@ public class FooControllerUpdateFooTest {
         fooController.updateFoo(id, null);
     }
 
+    // This test case assumes that invalid data will throw a ResponseStatusException with status BAD_REQUEST,
+    // which might not be the actual behavior of the fooService.save method. If the fooService does not perform
+    // validation checks and throws exceptions accordingly, this test will fail. The fooService.save method
+    // should be modified to include input validation to make this test pass.
     @Test(expected = ResponseStatusException.class)
     public void updateWithInvalidFooDtoData() {
         Long id = 1L;
@@ -166,6 +172,10 @@ public class FooControllerUpdateFooTest {
         fooController.updateFoo(id, invalidFooDto);
     }
 
+    // This test case is expecting a ResponseStatusException to be thrown in case of a RuntimeException,
+    // which might not be the behavior of the fooController.updateFoo method unless it's explicitly handled.
+    // If the fooController.updateFoo method does not catch RuntimeException and rethrows it as a ResponseStatusException,
+    // this test will fail. Exception handling in the fooController.updateFoo method should be reviewed.
     @Test(expected = ResponseStatusException.class)
     public void updateFooServiceLayerError() {
         Long id = 1L;

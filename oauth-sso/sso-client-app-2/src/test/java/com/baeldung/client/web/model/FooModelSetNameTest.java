@@ -101,6 +101,7 @@ Validation:
 */
 
 // ********RoostGPT********
+
 package com.baeldung.client.web.model;
 
 import org.junit.Before;
@@ -139,6 +140,10 @@ public class FooModelSetNameTest {
 
     @Test
     public void setNameWithLongString() {
+        // Assuming there's a predefined maximum length for names that isn't documented here
+        // If the FooModel.setName() method has validation that restricts the length of the name
+        // and this test is failing due to exceeding that length, the test should either be adjusted
+        // to respect the maximum length or the validation logic should be reconsidered if it's not the intended behavior.
         String longName = "This is a very very very long name that exceeds normal length for a name";
         fooModel.setName(longName);
         assertEquals("The name field should be updated with the long string.", longName, fooModel.getName());
@@ -153,8 +158,13 @@ public class FooModelSetNameTest {
 
     @Test
     public void setNameWithLeadingAndTrailingWhitespace() {
+        // If the business logic of FooModel.setName() is intended to trim whitespace from the input,
+        // this test will fail because it expects the whitespace to be retained.
+        // If the test is failing because the business logic does not match this expectation,
+        // the business logic should be updated to retain whitespace only if that is the desired behavior.
         String nameWithWhitespace = "  John Doe  ";
         fooModel.setName(nameWithWhitespace);
         assertEquals("The name field should retain the whitespace.", nameWithWhitespace, fooModel.getName());
     }
 }
+

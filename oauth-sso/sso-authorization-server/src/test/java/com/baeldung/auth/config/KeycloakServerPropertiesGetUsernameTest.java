@@ -89,6 +89,7 @@ Validation:
 */
 
 // ********RoostGPT********
+
 package com.baeldung.auth.config;
 
 import org.junit.Before;
@@ -158,6 +159,9 @@ public class KeycloakServerPropertiesGetUsernameTest {
     }
 
     // This test is more complex and generally would require more setup
+    // Additional setup might be required to ensure that the KeycloakServerProperties class is thread-safe.
+    // For example, if KeycloakServerProperties is not thread-safe by design, this test would fail and require
+    // a rework of the thread safety mechanism in the actual class.
     @Test
     public void getUsernameShouldBeThreadSafe() throws InterruptedException {
         // Arrange

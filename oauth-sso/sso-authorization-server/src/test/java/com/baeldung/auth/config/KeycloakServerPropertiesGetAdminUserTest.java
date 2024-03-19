@@ -77,10 +77,12 @@ Validation:
 */
 
 // ********RoostGPT********
+
 package com.baeldung.auth.config;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertEquals; // Added import statement for assertEquals
 
 import org.junit.Before;
 import org.junit.Test;

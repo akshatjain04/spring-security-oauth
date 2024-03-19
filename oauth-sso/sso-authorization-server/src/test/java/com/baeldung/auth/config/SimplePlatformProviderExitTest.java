@@ -90,6 +90,7 @@ Please note that for the "Assert" phase, the actual exit of the application cann
 */
 
 // ********RoostGPT********
+
 package com.baeldung.auth.config;
 
 import static org.mockito.Mockito.*;
@@ -122,6 +123,7 @@ public class SimplePlatformProviderExitTest {
         // Assert
         verify(logger).fatal(npe);
         // TODO: Add additional verification for System.exit(1) if possible via a testing framework
+        // Note: To properly test System.exit, consider using a security manager or a framework like System Rules.
     }
 
     @Test
@@ -135,6 +137,7 @@ public class SimplePlatformProviderExitTest {
         // Assert
         verify(logger).fatal(customException);
         // TODO: Add additional verification for System.exit(1) if possible via a testing framework
+        // Note: Testing System.exit requires a special approach to avoid terminating the JVM running the tests.
     }
 
     @Test
@@ -145,6 +148,7 @@ public class SimplePlatformProviderExitTest {
         // Assert
         verify(logger).fatal(null);
         // TODO: Add additional verification for System.exit(1) if possible via a testing framework
+        // Note: The handling of null should be checked in the implementation to avoid NullPointerException.
     }
 
     @Test
@@ -158,6 +162,7 @@ public class SimplePlatformProviderExitTest {
         // Assert
         verify(logger).fatal(ie);
         // TODO: Add additional verification for System.exit(1) if possible via a testing framework
+        // Note: InterruptedException handling should include resetting the interrupt flag with Thread.currentThread().interrupt().
     }
 
     @Test
@@ -171,5 +176,6 @@ public class SimplePlatformProviderExitTest {
         // Assert
         verify(logger).fatal(oome);
         // TODO: Add additional verification for System.exit(1) if possible via a testing framework
+        // Note: Testing for OutOfMemoryError is challenging; ensure there is a strategy for dealing with such errors.
     }
 }

@@ -93,6 +93,7 @@ Validation:
 */
 
 // ********RoostGPT********
+
 package com.baeldung.auth.config;
 
 import static org.mockito.Mockito.mock;
@@ -173,7 +174,12 @@ public class Resteasy3ProviderGetContextDataTest {
     }
 
     // TODO: Replace R with the actual class name for the context data
+    // Added explanatory comment because the method getContextData is a generic method and should be properly defined to avoid compilation errors.
+    // The placeholder 'R' should be replaced with a concrete class name or the method should be correctly parameterized.
     public <R> R getContextData(Class<R> type) {
+        if (type == null) {
+            throw new IllegalArgumentException("Type parameter cannot be null");
+        }
         return ResteasyProviderFactory.getInstance().getContextData(type);
     }
 
