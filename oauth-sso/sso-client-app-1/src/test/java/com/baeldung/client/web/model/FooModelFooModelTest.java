@@ -110,64 +110,64 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class FooModelTest {
+public class FooModelFooModelTest {
 
-    private FooModel fooModel;
+  private FooModel fooModel;
 
-    @Before
-    public void setUp() {
-        fooModel = new FooModel();
-    }
+  @Before
+  public void setUp() {
+    fooModel = new FooModel();
+  }
 
-    @Test
-    public void testDefaultConstructorInitialization() {
-        assertNotNull("The FooModel instance should not be null", fooModel);
-    }
+  @Test
+  public void testDefaultConstructorInitialization() {
+    assertNotNull("The FooModel instance should not be null", fooModel);
+  }
 
-    // Assuming that the FooModel class does not have the getId or getName methods,
-    // the following test will fail to compile. If they are indeed part of the class,
-    // this comment should be ignored, and the test should run as expected.
-    @Test
-    public void testInitialStateOfProperties() {
-        // Comment out the assertions if the FooModel class does not have the `id` and `name` properties along with their getters.
-        // assertNull("The id property should be null by default", fooModel.getId());
-        // assertNull("The name property should be null by default", fooModel.getName());
-    }
+  // Assuming that the FooModel class does not have the getId or getName methods,
+  // the following test will fail to compile. If they are indeed part of the class,
+  // this comment should be ignored, and the test should run as expected.
+  @Test
+  public void testInitialStateOfProperties() {
+    // Comment out the assertions if the FooModel class does not have the `id` and `name` properties along with their getters.
+    // assertNull("The id property should be null by default", fooModel.getId());
+    // assertNull("The name property should be null by default", fooModel.getName());
+  }
 
-    // Assuming that the FooModel class does not have the setId or setName methods,
-    // the following test will fail to compile. If they are indeed part of the class,
-    // this comment should be ignored, and the test should run as expected.
-    @Test
-    public void testMutabilityOfProperties() {
-        // Comment out the code below if the FooModel class does not have `id` and `name` properties along with their setters.
-        // Long expectedId = 1L; // TODO: Change value as needed
-        // String expectedName = "FooName"; // TODO: Change value as needed
-        // fooModel.setId(expectedId);
-        // fooModel.setName(expectedName);
+  // Assuming that the FooModel class does not have the setId or setName methods,
+  // the following test will fail to compile. If they are indeed part of the class,
+  // this comment should be ignored, and the test should run as expected.
+  @Test
+  public void testMutabilityOfProperties() {
+    // Comment out the code below if the FooModel class does not have `id` and `name` properties along with their setters.
+    // Long expectedId = 1L; // TODO: Change value as needed
+    // String expectedName = "FooName"; // TODO: Change value as needed
+    // fooModel.setId(expectedId);
+    // fooModel.setName(expectedName);
 
-        // assertEquals("The id property should be updated", expectedId, fooModel.getId());
-        // assertEquals("The name property should be updated", expectedName, fooModel.getName());
-    }
+    // assertEquals("The id property should be updated", expectedId, fooModel.getId());
+    // assertEquals("The name property should be updated", expectedName, fooModel.getName());
+  }
 
-    @Test
-    public void testToStringMethod() {
-        String toStringResult = fooModel.toString();
-        assertNotNull("The toString method should return a non-null string", toStringResult);
-        // If the FooModel class does not override the toString method, this assertion might fail because the default toString does not contain the class name.
-        assertTrue("The toString method should contain the class name", toStringResult.contains("FooModel"));
-    }
+  @Test
+  public void testToStringMethod() {
+    String toStringResult = fooModel.toString();
+    assertNotNull("The toString method should return a non-null string", toStringResult);
+    // If the FooModel class does not override the toString method, this assertion might fail because the default toString does not contain the class name.
+    assertTrue("The toString method should contain the class name", toStringResult.contains("FooModel"));
+  }
 
-    @Test
-    public void testEqualsMethodForSelf() {
-        // If the FooModel class does not override the equals method, this test might fail because the default implementation might not behave as expected.
-        assertTrue("The equals method should return true when comparing to itself", fooModel.equals(fooModel));
-    }
+  @Test
+  public void testEqualsMethodForSelf() {
+    // If the FooModel class does not override the equals method, this test might fail because the default implementation might not behave as expected.
+    assertTrue("The equals method should return true when comparing to itself", fooModel.equals(fooModel));
+  }
 
-    @Test
-    public void testHashCodeConsistency() {
-        int initialHashCode = fooModel.hashCode();
-        int repeatedHashCode = fooModel.hashCode();
-        // If the FooModel class does not override the hashCode method, this test might not be valid as the default implementation might not provide a consistent hash code.
-        assertEquals("The hashCode should be consistent across invocations", initialHashCode, repeatedHashCode);
-    }
+  @Test
+  public void testHashCodeConsistency() {
+    int initialHashCode = fooModel.hashCode();
+    int repeatedHashCode = fooModel.hashCode();
+    // If the FooModel class does not override the hashCode method, this test might not be valid as the default implementation might not provide a consistent hash code.
+    assertEquals("The hashCode should be consistent across invocations", initialHashCode, repeatedHashCode);
+  }
 }

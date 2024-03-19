@@ -114,56 +114,56 @@ import static org.junit.Assert.*;
 @RunWith(MockitoJUnitRunner.class)
 public class UiSecurityConfigFilterChainTest {
 
-    @Mock
-    private HttpSecurity httpSecurity;
+  @Mock
+  private HttpSecurity httpSecurity;
 
-    private UiSecurityConfig uiSecurityConfig;
+  private UiSecurityConfig uiSecurityConfig;
 
-    @Before
-    public void setUp() {
-        uiSecurityConfig = new UiSecurityConfig();
-    }
+  @Before
+  public void setUp() {
+    uiSecurityConfig = new UiSecurityConfig();
+  }
 
-    // No errors reported for this test case, assuming it passes successfully.
-    @Test
-    public void successfulAuthorizationForPublicEndpoints() throws Exception {
-        // ... existing test code
-    }
+  // No errors reported for this test case, assuming it passes successfully.
+  @Test
+  public void successfulAuthorizationForPublicEndpoints() throws Exception {
+    // ... existing test code
+  }
 
-    // No errors reported for this test case, assuming it passes successfully.
-    @Test
-    public void authenticatedRequestToProtectedResource() throws Exception {
-        // ... existing test code
-    }
+  // No errors reported for this test case, assuming it passes successfully.
+  @Test
+  public void authenticatedRequestToProtectedResource() throws Exception {
+    // ... existing test code
+  }
 
-    // No errors reported for this test case, assuming it passes successfully.
-    @Test
-    public void oAuth2LoginConfiguration() throws Exception {
-        // ... existing test code
-    }
+  // No errors reported for this test case, assuming it passes successfully.
+  @Test
+  public void oAuth2LoginConfiguration() throws Exception {
+    // ... existing test code
+  }
 
-    // No errors reported for this test case, assuming it passes successfully.
-    @Test
-    public void httpSecurityBuildProcess() throws Exception {
-        // ... existing test code
-    }
+  // No errors reported for this test case, assuming it passes successfully.
+  @Test
+  public void httpSecurityBuildProcess() throws Exception {
+    // ... existing test code
+  }
 
-    // Assuming this test case is the one with issues, since it's the only one with an expected exception.
+  // Assuming this test case is the one with issues, since it's the only one with an expected exception.
     // If the test is failing because the exception is not being thrown as expected, it could be due to the 
     // business logic not throwing exceptions under the test conditions. This would require an investigation 
     // into the filterChain method of the UiSecurityConfig class.
     // If the failure is due to any other reason, such as an environment setup issue or a missing mock setup, 
-    // then that would need to be addressed without commenting out the test.
-    @Test(expected = Exception.class)
-    public void handlingHttpSecurityConfigurationException() throws Exception {
-        // ... existing test code
-    }
+  // then that would need to be addressed without commenting out the test.
+  @Test(expected = Exception.class)
+  public void handlingHttpSecurityConfigurationException() throws Exception {
+    // ... existing test code
+  }
 
-    // Inner class to simulate the actual configuration class
-    class UiSecurityConfig {
-        // No errors reported for the business logic, assuming it is correct.
-        public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-            // ... existing business logic
-        }
+  // Inner class to simulate the actual configuration class
+  class UiSecurityConfig {
+    // No errors reported for the business logic, assuming it is correct.
+    public void filterChain(HttpSecurity http) throws Exception {
+      // ... existing business logic
     }
+  }
 }
