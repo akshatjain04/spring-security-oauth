@@ -97,6 +97,7 @@ Validation:
 */
 
 // ********RoostGPT********
+
 package com.baeldung.client.web.controller;
 
 import static org.mockito.Mockito.*;
@@ -116,6 +117,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import com.baeldung.client.web.model.FooModel;
 import reactor.core.publisher.Mono;
+import org.springframework.beans.factory.annotation.Value;
 
 public class FooClientControllerGetFoosTest {
 
@@ -161,9 +163,11 @@ public class FooClientControllerGetFoosTest {
 
     @Test(expected = RuntimeException.class)
     public void getFoosShouldHandleWebClientException() {
+        // Test is expecting a RuntimeException to be thrown
         when(responseSpec.bodyToMono(any())).thenThrow(new RuntimeException());
 
         fooClientController.getFoos(model);
+        // No assertion for exception catching, the test will pass if RuntimeException is thrown
     }
 
     @Test
@@ -172,13 +176,18 @@ public class FooClientControllerGetFoosTest {
 
         String viewName = fooClientController.getFoos(model);
 
+        // Possible issue: If the implementation is not handling null responses by setting the attribute to null, this test will fail.
+        // Ensure that the business logic sets the model attribute to null or an empty list when response is empty.
         verify(model).addAttribute(eq("foos"), isNull());
         assertEquals("foos", viewName);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void getFoosShouldHandleNullModel() {
+        // This test expects an IllegalArgumentException when a null Model is passed
+        // If the business logic does not throw this exception, the test will fail.
         fooClientController.getFoos(null);
+        // Ensure that the business logic checks for null arguments and throws IllegalArgumentException
     }
 
     @Test
@@ -187,6 +196,8 @@ public class FooClientControllerGetFoosTest {
 
         String viewName = fooClientController.getFoos(model);
 
+        // Potential issue: If the business logic is not handling an empty list correctly, this test will fail.
+        // Verify that the business logic correctly sets an empty list attribute on the model.
         verify(model).addAttribute("foos", Collections.emptyList());
         assertEquals("foos", viewName);
     }
